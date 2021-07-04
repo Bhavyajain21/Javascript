@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Bud</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      * {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background-color: rgb(126, 126, 126);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section-center {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(58, 58, 58);
+    box-shadow: 3px 1px 10px rgb(14, 8, 8);
+    border-radius: 10px;
+    /* text-align: center; */
+}
+
+.ToDo-form {
+    margin-top: 130px;
+    text-align: center;
+    padding: 20px;
+}
+.Todo-list{
+  margin-bottom:20px;
+  margin-top:20px;
+}
+.ToDo-form h3 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 3vw;
+    margin-bottom: 20px;
+    /* text-decoration: underline; */
+}
+
+.form-control {
+    margin-top: 4vw;
+}
+
+#task {
+    box-sizing: border-box;
+    padding: .7vw;
+    width: 70%;
+    border: none;
+    outline: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: 1vw;
+}
+
+.submit-btn {
+    box-sizing: border-box;
+    text-transform: uppercase;
+    padding: .71vw;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: brown;
+    margin-left: -10px;
+    width: 20%;
+    /* z-index: -100; */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    letter-spacing: 2px;
+    font-size: 1vw;
+    /* padding-bottom: 12px; */
+}
+
+.submit-btn:hover {
+    background-color: brown;
+}
+
+.clear-btn {
+    text-transform: capitalize;
+    width: 10rem;
+    /* height: 1.5rem; */
+    display: grid;
+    /* align-items: center; */
+    background: transparent;
+    border-color: transparent;
+    color:rgb(245, 140, 140);
+    margin: 0 auto;
+    font-size: 0.85rem;
+    letter-spacing: var(--spacing);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: -1.25rem;
+    padding-bottom: 40px;
+    outline: none;
+}
+
+.clear-btn:hover {
+    color: darkred;
+}
+
+.alert {
+    margin-bottom: 2rem;
+    /* height: 1.25rem; */
+    /* background-color: rgba(36, 194, 36, 0.4); */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: .2vw;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    /* border: 1px solid white; */
+    font-size: 1vw;
+}
+
+.alert-danger {
+    color: #721c24;
+    background: #f8d7da;
+}
+
+.alert-success {
+    color: #155724;
+    background: #d4edda;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin-left: 10px; */
+    margin-top: -1.0rem;
+    margin-bottom: 1.9rem;
+    /* transition: var(--transition); */
+    padding: 0.25rem 3rem;
+    /* border-radius: var(--radius); */
+    text-transform: capitalize;
+    font-size: 1vw;
+}
+.Todo-list{
+  /* margin-bottom:20px; */
+}
+
+.title {
+    /* margin-bottom: 0; */
+    color: var(--clr-grey-1);
+    letter-spacing: 1px;
+    font-size: 1.5vw;
+}
+
+.edit-btn,
+.delete-btn {
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 1.2vw;
+    /* margin: 0 0.15rem; */
+    transition: var(--transition);
+    /* width: 10vw; */
+    outline: none;
+    color: white;
+    /* padding: 10%; */
+    margin-left: .95rem;
+}
+
+.edit-btn {
+    color: rgb(1, 255, 1);
+}
+
+.edit-btn:hover {
+    color: darkgreen;
+    transform: scale(2, 2);
+}
+
+.delete-btn {
+    color: rgb(255, 0, 0);
+}
+
+.delete-btn:hover {
+    transform: scale(2, 2);
+    color: red;
+}
+
+.list-container {
+    /* margin-top: -2rem; */
+    margin-top:10px;
+    visibility: hidden;
+}
+
+.show-container {
+    visibility: visible;
+}
+
+@media(max-width:690px) {
+    html {
+        background-color: rgb(58, 58, 58);
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .ToDo-form h3 {
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 11vw;
+        margin-top:-10px;
+        /* margin-top: -70px; */
+        /* text-decoration: underline; */
+    }
+    .alert {
+        margin-bottom: 2rem;
+        /* height: 1.25rem; */
+        /* background-color: rgba(36, 194, 36, 0.4); */
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1.9vw;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        border-radius: 50px;
+        /* border: 1px solid white; */
+        font-size: 3vw;
+    }
+    .section-center {
+        width: 100%;
+        /* height: 90vh; */
+        margin-top: 0;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .ToDo-form {
+        margin-top: 20px;
+        text-align: center;
+        padding: 20px;
+        background-color: none;
+    }
+    .form-control {
+        margin-top: 0;
+    }
+    #task {
+        box-sizing: border-box;
+        padding: 4vw;
+        width: 70%;
+        border: none;
+        outline: none;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        font-size: 3vw;
+        margin-bottom:10px;
+    }
+    .submit-btn {
+        box-sizing: border-box;
+        text-transform: uppercase;
+        padding: 4vw;
+        background-color: transparent;
+        color: white;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background-color: rgb(8, 8, 8);
+        margin-left: -10px;
+        width: 30%;
+        /* z-index: -100; */
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        letter-spacing: 2px;
+        font-size: 3vw;
+        /* padding-bottom: 12px; */
+    }
+    
+    .todo-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* margin-left: 10px; */
+        /* margin-bottom: 0.5rem; */
+        /* transition: var(--transition); */
+        padding: 0.25rem 1.5rem;
+        /* border-radius: var(--radius); */
+        text-transform: capitalize;
+        font-size: 2vw;
+        border-bottom:1px solid white;
+        width:80%;
+        margin-left:auto;
+        margin-right:auto;
+        border-width:.5px;
+    }
+    .title {
+        /* margin-bottom: 0; */
+        color: var(--clr-grey-1);
+        letter-spacing: 1px;
+        font-size: 5vw;
+    }
+    .edit-btn,
+    .delete-btn {
+        background: transparent;
+        border-color: transparent;
+        cursor: pointer;
+        font-size: 4vw;
+        /* margin: 0 0.15rem; */
+        transition: var(--transition);
+        /* width: 10vw; */
+        outline: none;
+        /* color: white; */
+        /* padding: 10%; */
+        /* margin-left: .95rem; */
+    }
+    .clear-btn {
+        text-transform: capitalize;
+        width: 10rem;
+        height: 1.5rem;
+        display: grid;
+        align-items: center;
+        background: transparent;
+        border-color: transparent;
+        color:rgb(245, 140, 140);
+        margin: 0 auto;
+        font-size: 0.9rem;
+        letter-spacing: var(--spacing);
+        cursor: pointer;
+        transition: var(--transition);
+        margin-top: 1.25rem;
+        padding-bottom: 40px;
+        outline: none;
+    }
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <link rel="icon" href = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgY0KmCzk8uzhb4dkutVvG1B9Gdj6uFMp2qw&usqp=CAU">
+</head>
+
+<body>
+    <section class="section-center">
+        <form class="ToDo-form">
+            <p class="alert"></p>
+            <h3>Grocery Bud</h3>
+            <div class="form-control">
+                <input type="text" id="task" placeholder="e.g. Gaming">
+                <button type="submit" class="submit-btn">submit</button>
+            </div>
+        </form>
+        <div class="list-container">
+            <div class="Todo-list">
+                
+
+            </div>
+            <button type="button" class="clear-btn">clear items</button>
+        </div>
+    </section>
+    <!-- <script src="app.js"></script> -->
+    <script>
+      // ****** select items **********
+
+const form = document.querySelector(".ToDo-form");
+const alert = document.querySelector(".alert");
+const task = document.getElementById("task");
+const submitBtn = document.querySelector(".submit-btn");
+const container = document.querySelector(".list-container");
+const list = document.querySelector(".Todo-list");
+const clearBtn = document.querySelector(".clear-btn");
+
+// edit option
+let editElement;
+let editFlag = false;
+let editID = "";
+
+
+// ****** event listeners **********
+
+
+// ****** event listeners **********
+
+// submit form
+form.addEventListener("submit", addItem);
+// clear list
+clearBtn.addEventListener("click", clearItems);
+// display items onload
+window.addEventListener("DOMContentLoaded", setupItems);
+
+// ****** functions **********
+
+// add item
+function addItem(e) {
+    e.preventDefault();
+    const value = task.value;
+    const id = new Date().getTime().toString();
+
+    if (value !== "" && !editFlag) {
+        const element = document.createElement("article");
+        let attr = document.createAttribute("data-id");
+        attr.value = id;
+        element.setAttributeNode(attr);
+        element.classList.add("todo-item");
+        element.innerHTML = `<p class="title">${value}</p>
+            <div class="btn-container">
+              <!-- edit btn -->
+              <button type="button" class="edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+              <!-- delete btn -->
+              <button type="button" class="delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          `;
+        // add event listeners to both buttons;
+        const deleteBtn = element.querySelector(".delete-btn");
+        deleteBtn.addEventListener("click", deleteItem);
+        const editBtn = element.querySelector(".edit-btn");
+        editBtn.addEventListener("click", editItem);
+
+        // append child
+        list.appendChild(element);
+        // display alert
+        displayAlert("item added to the list", "success");
+        // show container
+        container.classList.add("show-container");
+        // set local storage
+        addToLocalStorage(id, value);
+        // set back to default
+        setBackToDefault();
+    } else if (value !== "" && editFlag) {
+        editElement.innerHTML = value;
+        displayAlert("value changed", "success");
+
+        // edit  local storage
+        editLocalStorage(editID, value);
+        setBackToDefault();
+    } else {
+        displayAlert("please enter value", "danger");
+    }
+}
+// display alert
+function displayAlert(text, action) {
+    alert.textContent = text;
+    alert.classList.add(`alert-${action}`);
+    // remove alert
+    setTimeout(function() {
+        alert.textContent = "";
+        alert.classList.remove(`alert-${action}`);
+    }, 1000);
+}
+
+// clear items
+function clearItems() {
+    const items = document.querySelectorAll(".todo-item");
+    if (items.length > 0) {
+        items.forEach(function(item) {
+            list.removeChild(item);
+        });
+    }
+    container.classList.remove("show-container");
+    displayAlert("empty list", "danger");
+    setBackToDefault();
+    localStorage.removeItem("list");
+}
+
+// delete item
+
+function deleteItem(e) {
+    const element = e.currentTarget.parentElement.parentElement;
+    const id = element.dataset.id;
+
+    list.removeChild(element);
+
+    if (list.children.length === 0) {
+        container.classList.remove("show-container");
+    }
+    displayAlert("item removed", "danger");
+
+    setBackToDefault();
+    // remove from local storage
+    removeFromLocalStorage(id);
+}
+// edit item
+function editItem(e) {
+    const element = e.currentTarget.parentElement.parentElement;
+    // set edit item
+    editElement = e.currentTarget.parentElement.previousElementSibling;
+    // set form value
+    task.value = editElement.innerHTML;
+    editFlag = true;
+    editID = element.dataset.id;
+    //
+    submitBtn.textContent = "edit";
+}
+// set backt to defaults
+function setBackToDefault() {
+    task.value = "";
+    editFlag = false;
+    editID = "";
+    submitBtn.textContent = "submit";
+}
+
+// ****** local storage **********
+
+// add to local storage
+function addToLocalStorage(id, value) {
+    const grocery = { id, value };
+    let items = getLocalStorage();
+    items.push(grocery);
+    localStorage.setItem("list", JSON.stringify(items));
+}
+
+function getLocalStorage() {
+    return localStorage.getItem("list") ?
+        JSON.parse(localStorage.getItem("list")) : [];
+}
+
+function removeFromLocalStorage(pass) {
+    let items = getLocalStorage();
+
+    items = items.filter(function(item) {
+        if (item.id !== pass) {
+            return item;
+        }
+    });
+
+    localStorage.setItem("list", JSON.stringify(items));
+}
+
+function editLocalStorage(id, value) {
+    let items = getLocalStorage();
+
+    items = items.map(function(item) {
+        if (item.id === id) {
+            item.value = value;
+        }
+        return item;
+    });
+    localStorage.setItem("list", JSON.stringify(items));
+}
+
+// SETUP LOCALSTORAGE.REMOVEITEM('LIST');
+
+// ****** setup items **********
+
+function setupItems() {
+    let items = getLocalStorage();
+
+    if (items.length > 0) {
+        items.forEach(function(item) {
+            createListItem(item.id, item.value);
+        });
+        container.classList.add("show-container");
+    }
+}
+
+function createListItem(id, value) {
+    const element = document.createElement("article");
+    let attr = document.createAttribute("data-id");
+    attr.value = id;
+    element.setAttributeNode(attr);
+    element.classList.add("todo-item");
+    element.innerHTML = `<p class="title">${value}</p>
+            <div class="btn-container">
+              <!-- edit btn -->
+              <button type="button" class="edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+              <!-- delete btn -->
+              <button type="button" class="delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          `;
+    // add event listeners to both buttons;
+    const deleteBtn = element.querySelector(".delete-btn");
+    deleteBtn.addEventListener("click", deleteItem);
+    const editBtn = element.querySelector(".edit-btn");
+    editBtn.addEventListener("click", editItem);
+
+    // append child
+    list.appendChild(element);
+}
+    </script>
+</body>
+
+</html>
