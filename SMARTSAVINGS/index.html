@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Savings</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="apple2.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+</head>
+<body>
+    <!-- Login
+         Signup
+         Cart
+         Help -->
+  <!-- preloader -->
+    <div class="preloader">
+        <img src="preloader.gif" alt="preloader">
+        <H1>Website is loading...</H1>
+    </div>
+         <header>
+             <div class="sale"><span>Sale upto 80% off. Use code</span> <span id="quote"><q>BHAVYABOSS</q></span>.<span>SHOP NOW</span></div>
+             <div class="major">
+                 <span class="logged">Login</span> 
+                 <span class="signed">Signup</span>
+                 <span><a href="contact.html" onclick="alert('You will be redirected to Contact Us Page!');">Help</a></span>
+                 <!-- <i class="fas fa-shopping-cart"></i><span>Cart</span> -->
+             </div>
+            
+            <!-- <div class="carts">
+                 <span>Cart</span>
+                  <i class="fas fa-cart-arrow-down"></i>
+            </div> -->
+         </header>
+         <div class="branding">
+             <div class="call"><i class="fas fa-phone-alt"></i>Call US:(+91)7023853494</div>
+             <div class="logo">
+                 <!-- <img src="apple2.png" class="apple"> -->
+                 <div class="logo-image" > smart savings</div>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Type to search" class="text">
+                <button class="sym"><i class="fas fa-search"></i></button>
+            </div>
+         </div>
+         <nav>
+             <ul>
+                  <li style="background-color:rgb(196, 196, 196); color: black;"><a style="color: black;" href="index.html">Home</a></li>
+                 <li><a href="grocery.html" >Groceries</a></li>
+                 <li><a href="vegetables.html">Vegetables</a></li>
+                 <li><a href="contact.html">Contact Us</a></li>
+                 <li><a href="about.html">About Us</a></li>
+             </ul>
+         </nav>
+
+         <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <div class="inner"></div>
+              <img src="Images/inigo-de-la-maza-s285sDw5Ikc-unsplash.jpg" style="width:80vw" height="660vh">
+              <div class="caption">Welcome to The India's No.1 Grocery Store</div>
+            </div>
+          
+            <div class="mySlides fade">
+                <div class="inner"></div>
+              <img src="Images/nrd-D6Tu_L3chLE-unsplash.jpg" style="width:80vw" height="660vh">
+              <div class="caption">We Delivery Our items at your doorstep.</div>
+            </div>
+          
+            <div class="mySlides fade">
+                <div class="inner"></div>
+              <img src="Images/franki-chamaki-CmqcUGYuKJU-unsplash.jpg" style="width:80vw" height="660vh">
+              <div class="caption">Hurry Up! Avail the offer Now. UPTO 70% OFF</div>
+            </div>
+          
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+          <br>
+          
+          <!-- The dots/circles -->
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+          
+          <div class="container">
+              <div class="details first" >
+                  <img src="Images/grocery.jpg" alt="">
+                  <div class="about">
+                    <span class="off">UPTO 70% off.</span>
+                    <span id="grocery" >Grocery and Staples</span>
+                    <p>Pulses, Atta & Other Flours, Rice & Other Grains, Dry Fruits & Nuts, Ghee & Vanaspati, Spices, Salt & Sugar, Grocery Best Offers</p>
+                </div>
+                <button class="fir"><a href="grocery.html">Click To View</a></button>
+              </div>
+              
+              <div class="details second">
+                <img src="Images/vegetables.jpg" alt="">
+                <div class="about">
+                  <span class="off">UPTO 50% off.</span>
+                  <span id="grocery">Vegetables</span>
+                  <p>Vegetables, Fruits, Vegetables & Fruits Cleaners</p>
+              </div>
+              <button class="sec"><a href="vegetables.html">Click To View</a></button>
+            </div>
+           
+          </div>
+          <section class="footer">
+            <p>Design and Developed by Bhavya Jain</p>
+            <p>SmartSavings, Copyright &copy; 2020. All rights reserved!</p>
+            <p>rishikabhavya@gmail.com</p>
+          </section>
+          <div class="modal-overlay">
+            <div class="login">
+              <div class="log">You're Logged in.</div>
+              <button class="login-btn">OK</button>
+          </div>
+        </div>
+        <div class="modal-overlay-1">
+          <div class="signup">
+            <div class="sign">You're Signed in.</div>
+            <button class="signup-btn">OK</button>
+        </div>
+      </div>
+  <script src="script.js">
+    
+  </script>
+</body>
+</html>

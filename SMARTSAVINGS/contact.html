@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Savings</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="apple2.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="stylecontact.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+</head>
+<body>
+    <!-- Login
+         Signup
+         Cart
+         Help -->
+
+         <header>
+            <div class="sale"><span>Sale upto 80% off. Use code</span> <span id="quote"><q>BHAVYABOSS</q></span>.<span>SHOP NOW</span></div>
+            <div class="major">
+                <span class="logged">Login</span> 
+                <span class="signed">Signup</span>
+                <span><a href="contact.html" onclick="alert('You will be redirected to Contact Us Page!');">Help</a></span>                <!-- <i class="fas fa-shopping-cart"></i><span>Cart</span> -->
+            </div>
+           
+           <!-- <div class="carts">
+                <span>Cart</span>
+                 <i class="fas fa-cart-arrow-down"></i>
+           </div> -->
+        </header>
+         <div class="branding">
+             <div class="call"><i class="fas fa-phone-alt"></i>Call US:(+91)7023853494</div>
+             <div class="logo">
+                 <!-- <img src="apple2.png" class="apple"> -->
+                 <div class="logo-image"> smart savings</div>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Type to search" class="text">
+                <button class="sym"><i class="fas fa-search"></i></button>
+            </div>
+         </div>
+         <nav>
+             <ul>
+                  <li ><a  href="index.html">Home</a></li>
+                 <li><a href="grocery.html" >Groceries</a></li>
+                 <li><a href="vegetables.html">Vegetables</a></li>
+                 <li style="background-color:rgb(196, 196, 196); color: black;"><a style="color: black;" href="contact.html">Contact Us</a></li>
+                 <li><a href="about.html">About Us</a></li>
+             </ul>
+         </nav>
+
+         
+        <section class="contact">
+        <div class="content">
+            <h1>Contact Us</h1>
+            <p>Connect with us to get the best Products:)</p>
+        </div>
+        <div class="contaier">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                     </div>
+                    <div class="text">
+                        <h3>Office-Address</h3>
+                        <p>Vijay Path, Jaipur, Rajasthan</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>7023853494</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa fa-envelope"></i></div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>rishikabhavya@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contactform">
+                <form name="myForm" onsubmit=" validateForm();">
+                    <h2>Send Message</h2>
+                    
+                        <span class="sahi">Full Name</span>
+                        <input type="text" name="" id="fname" required>
+                        
+                   
+                        <span class="sahi">Email</span>
+                        <input type="email" name="" id="email" required>
+                        
+                    
+                        <span class="sahi">Mobile No.</span>
+                        <input type="number" name="fname" id="phone" >
+                        
+                    
+                        <span class="sahi">Message:</span>
+                        <input type="text" name="" id="message" required  >
+                        
+                    
+                        <input type="submit" name="" id="submit" value="Submit">
+                   
+             
+            </form>
+        </div>
+        </div>
+        </section>
+        
+          <section class="footer">
+            <p>Design and Developed by Bhavya Jain</p>
+            <p>SmartSavings, Copyright &copy; 2020. All rights reserved!</p>         
+             <p>rishikabhavya@gmail.com</p>
+          </section>
+          <div class="modal-overlay">
+            <div class="login">
+              <div class="log">You're Logged in.</div>
+              <button class="login-btn">OK</button>
+          </div>
+        </div>
+        <div class="modal-overlay-1">
+          <div class="signup">
+            <div class="sign">You're Signed in.</div>
+            <button class="signup-btn">OK</button>
+        </div>
+      </div>
+
+      
+        <div class="modal-overlay8">
+            <div class="login">
+              <div class="log">Thanks For Contacting Us!</div>
+              <button class="login-btn1">OK</button>
+          </div>
+        </div>
+        
+        
+      
+    </div>
+      <script src="script.js"></script>
+  <script>
+    
+
+
+var submit= document.getElementById("submit");
+
+submit.addEventListener("click", function(){
+  var emailid = document.getElementById("email").value;
+  var name = document.getElementById("fname").value;
+  var mobile = document.getElementById("phone").value;
+  var message = document.getElementById("message").value;
+
+  if(name.length==0){
+    alert("All fields are necessary!\nEnter Your Name");
+  }
+  else if(emailid.length==0){
+    alert("All fields are necessary!\nEnter your Email id");
+  }
+  else if(mobile.length!=10){
+    alert("All fields are necessary!\nEnter your Correct Mobile NO.");
+  }
+  
+  
+  else if(message.length==0){
+    alert("All fields are necessary!\nEnter your Review/Query!");
+  }
+  else{
+    var modal8=document.querySelector(".modal-overlay8");
+    modal8.classList.add("show");
+    
+    alert("Thanks for The Query/Feedback!");
+    var close=document.querySelector(".login-btn1");
+    close.addEventListener("click",function(){
+        modal8.classList.remove("show");
+    }
+    
+    
+  });
+ 
+
+
+
+
+
+
+  </script>
+</body>
+</html>
